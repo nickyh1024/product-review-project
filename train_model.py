@@ -5,6 +5,9 @@ from sklearn.metrics import classification_report, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
 from preprocess import load_and_clean_data
+import joblib
+
+
 
 X_train, X_test, y_train, y_test = load_and_clean_data("yelp_sample.csv")
 
@@ -28,3 +31,6 @@ plt.xlabel("Predicted")
 plt.ylabel("Actual")
 plt.title("Confusion Matrix")
 plt.show()
+
+joblib.dump(model, "model.pkl")
+joblib.dump(vectorizer, "vectorizer.pkl")
